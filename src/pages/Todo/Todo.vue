@@ -44,7 +44,6 @@ import CardInfo from "./components/CardInfo.vue";
 import DSelect from "@/components/forms/DSelect.vue";
 import TextInput from "@/components/forms/TextInput.vue";
 import { statusTypes } from "@/helpers/constant";
-import debounce from "lodash.debounce";
 import CreateTodoCard from "./components/CreateTodoCard.vue";
 export default {
   data() {
@@ -81,7 +80,7 @@ export default {
   watch: {
     filters: {
       async handler() {
-        await this.listTodoItems({ ...this.filters });
+        await this.listTodoItems(this.filters);
       },
       deep: true,
     },

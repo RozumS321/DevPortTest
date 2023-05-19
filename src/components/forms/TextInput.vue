@@ -57,10 +57,9 @@ export default {
       },
       set(newValue) {
         this.error = "";
-        if (this.validation(newValue)) {
+        if (this?.validation && this?.validation(newValue)) {
           this.error = this.errorMessage;
         }
-
         this.$emit("input", newValue);
       },
     },
